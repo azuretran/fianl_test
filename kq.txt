@@ -1,0 +1,4 @@
+Mã SV	Họ Lót	Tên	Mã Lớp	Điểm TB	Kết Quả
+100000	nguyễn văn	A	D15CQAT01-N	8.5	D
+100001	nguyễn văn	B	D15CQAT01-N	8.5	D
+100002	nguyễn văn	C	D16CQAT01-N	4.5	R

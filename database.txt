@@ -1,0 +1,42 @@
+CREATE TABLE LTM_LOPHOC(malop NVARCHAR(100) PRIMARY KEY  NOT NULL,tenlop NVARCHAR(200))
+CREATE TABLE LTM_DIEM(MSV NVARCHAR(200) PRIMARY KEY NOT NULL,diemtoan FLOAT,diemvan FLOAT)
+CREATE TABLE LTM_SINHVIEN(MSV NVARCHAR(200) PRIMARY KEY NOT NULL,ho_lot NVARCHAR(200),ten NVARCHAR(200),malop NVARCHAR(100))
+ALTER TABLE dbo.LTM_SINHVIEN
+	ADD CONSTRAINT FK_SINHVIEN_LOP
+	FOREIGN KEY (MALOP)
+	REFERENCES dbo.LTM_LOPHOC
+ALTER TABLE dbo.LTM_DIEM
+ADD CONSTRAINT FK_SINHVIEN_DIEM
+FOREIGN KEY (MSV)
+REFERENCES dbo.LTM_SINHVIEN
+INSERT INTO dbo.LTM_LOPHOC
+        ( malop, tenlop )
+VALUES  ( N'D15CQAT01-N', -- malop - nvarchar(100)
+          N'AN TOÀN 1'  -- tenlop - nvarchar(200)
+          )
+INSERT INTO dbo.LTM_SINHVIEN
+        ( MSV, ho_lot, ten, malop )
+VALUES  ( N'100000', -- MSV - nvarchar(200)
+          N'nguyễn văn', -- ho_lot - nvarchar(200)
+          N'A', -- ten - nvarchar(200)
+          N'D15CQAT01-N'  -- malop - nvarchar(100)
+          )
+INSERT INTO dbo.LTM_DIEM
+        ( MSV, diemtoan, diemvan )
+VALUES  ( N'100000', -- MSV - nvarchar(200)
+          5.0, -- diemtoan - float
+          7.0  -- diemvan - float
+          )
+INSERT INTO dbo.LTM_SINHVIEN
+        ( MSV, ho_lot, ten, malop )
+VALUES  ( N'100001', -- MSV - nvarchar(200)
+          N'nguyễn văn', -- ho_lot - nvarchar(200)
+          N'B', -- ten - nvarchar(200)
+          N'D15CQAT01-N'  -- malop - nvarchar(100)
+		  )
+INSERT INTO dbo.LTM_DIEM
+        ( MSV, diemtoan, diemvan )
+VALUES  ( N'100001', -- MSV - nvarchar(200)
+          5.0, -- diemtoan - float
+          7.0  -- diemvan - float
+          )
